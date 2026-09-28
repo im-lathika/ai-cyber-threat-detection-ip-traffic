@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run PassiveWatch dashboard",
+			"type": "shell",
+			"command": ".venv/Scripts/python.exe -m streamlit run dashboard.py --server.headless true --server.port 8501",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
