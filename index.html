@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PassiveWatch | Cyber Threat Detection</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b1220;
+            color: white;
+        }
+
+        header {
+            background: #111827;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #263244;
+        }
+
+        header h1 {
+            color: #00e5ff;
+            font-size: 28px;
+        }
+
+        header span {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 25px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 0 45px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background: #123c35;
+            color: #35e0b1;
+            font-size: 14px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .card h3 {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #00e5ff;
+        }
+
+        .section {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: #00e5ff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #263244;
+        }
+
+        th {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        td {
+            color: #e2e8f0;
+        }
+
+        .safe {
+            color: #35e0b1;
+        }
+
+        .warning {
+            color: #facc15;
+        }
+
+        .danger {
+            color: #ff5c5c;
+        }
+
+        .info-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .info {
+            background: #0b1220;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #263244;
+        }
+
+        .info h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 800px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-box {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 18px 20px;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🛡️ PassiveWatch</h1>
+        <span>AI-Based Cyber Threat Detection</span>
+    </header>
+
+    <div class="container">
+
+        <section class="hero">
+            <h2>Cyber Threat Detection Dashboard</h2>
+
+            <p>
+                PassiveWatch analyzes one-way IP traffic and network flow
+                metadata to identify suspicious cyber threat patterns using
+                explainable detection techniques.
+            </p>
+
+            <div class="status">
+                ● SYSTEM ONLINE
+            </div>
+        </section>
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>TRAFFIC FLOWS</h3>
+                <div class="number">1,248</div>
+            </div>
+
+            <div class="card">
+                <h3>THREATS DETECTED</h3>
+                <div class="number danger">27</div>
+            </div>
+
+            <div class="card">
+                <h3>SAFE CONNECTIONS</h3>
+                <div class="number safe">1,183</div>
+            </div>
+
+            <div class="card">
+                <h3>RISK SCORE</h3>
+                <div class="number warning">32%</div>
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <h2>Recent Traffic Analysis</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Source IP</th>
+                        <th>Destination IP</th>
+                        <th>Protocol</th>
+                        <th>Traffic</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>192.168.1.10</td>
+                        <td>45.77.21.90</td>
+                        <td>TCP</td>
+                        <td>2.4 MB</td>
+                        <td class="safe">SAFE</td>
+                    </tr>
+
+                    <tr>
+                        <td>10.0.0.24</td>
+                        <td>185.220.101.4</td>
+                        <td>TCP</td>
+                        <td>8.7 MB</td>
+                        <td class="danger">THREAT</td>
+                    </tr>
+
+                    <tr>
+                        <td>192.168.1.25</td>
+                        <td>104.21.55.12</td>
+                        <td>UDP</td>
+                        <td>1.8 MB</td>
+                        <td class="safe">SAFE</td>
+                    </tr>
+
+                    <tr>
+                        <td>10.0.0.18</td>
+                        <td>91.108.56.20</td>
+                        <td>TCP</td>
+                        <td>5.1 MB</td>
+                        <td class="warning">SUSPICIOUS</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section class="section">
+
+            <h2>Detection Approach</h2>
+
+            <div class="info-box">
+
+                <div class="info">
+                    <h3>🔍 Traffic Analysis</h3>
+                    <p>
+                        Monitors flow metadata such as source IP,
+                        destination IP, protocol, packets and traffic volume.
+                    </p>
+                </div>
+
+                <div class="info">
+                    <h3>🤖 Threat Detection</h3>
+                    <p>
+                        Uses explainable detection rules to identify
+                        suspicious network behaviour and abnormal traffic.
+                    </p>
+                </div>
+
+                <div class="info">
+                    <h3>⚠️ Alert Generation</h3>
+                    <p>
+                        Suspicious traffic is classified and presented
+                        as security alerts for investigation.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        PassiveWatch © 2026 | AI-Based Cyber Threat Detection
+    </footer>
+
+</body>
+</html>
