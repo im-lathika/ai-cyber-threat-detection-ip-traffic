@@ -4,197 +4,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PassiveWatch | Cyber Threat Detection</title>
+    <title>PassiveWatch: Threat Detection</title>
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #0b1220;
-            color: white;
+            margin: 0;
+            background: #0d0f14;
+            color: #f4f4f5;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        header {
-            background: #111827;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #263244;
-        }
-
-        header h1 {
-            color: #00e5ff;
-            font-size: 28px;
-        }
-
-        header span {
-            color: #94a3b8;
-            font-size: 14px;
+        .page {
+            min-height: 100vh;
+            padding: 80px 5.3% 120px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: auto;
-            padding: 40px 25px;
         }
 
-        .hero {
-            text-align: center;
-            padding: 30px 0 45px;
+        h1 {
+            font-size: 48px;
+            margin: 0 0 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
+        .description {
+            font-size: 18px;
+            color: #f1f1f1;
+            margin-bottom: 32px;
         }
 
-        .hero p {
-            color: #94a3b8;
-            max-width: 750px;
-            margin: auto;
-            line-height: 1.7;
-        }
-
-        .status {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 18px;
-            border-radius: 20px;
-            background: #123c35;
-            color: #35e0b1;
-            font-size: 14px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: #111827;
-            border: 1px solid #263244;
-            border-radius: 12px;
-            padding: 22px;
-        }
-
-        .card h3 {
-            color: #94a3b8;
-            font-size: 14px;
+        .label {
+            font-size: 16px;
             margin-bottom: 12px;
+            display: block;
         }
 
-        .number {
-            font-size: 30px;
-            font-weight: bold;
-            color: #00e5ff;
-        }
+        /* Upload box */
 
-        .section {
-            background: #111827;
-            border: 1px solid #263244;
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 25px;
-        }
-
-        .section h2 {
-            margin-bottom: 20px;
-            color: #00e5ff;
-        }
-
-        table {
+        .upload-box {
             width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
+            min-height: 80px;
+            background: #25262f;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
             padding: 14px;
-            text-align: left;
-            border-bottom: 1px solid #263244;
+            gap: 20px;
+            margin-bottom: 25px;
         }
 
-        th {
-            color: #94a3b8;
-            font-size: 14px;
+        .upload-button {
+            background: #171a21;
+            color: white;
+            border: 1px solid #4b4e59;
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        td {
-            color: #e2e8f0;
+        .upload-button:hover {
+            background: #20242d;
         }
 
-        .safe {
-            color: #35e0b1;
+        .file-info {
+            color: #9da0aa;
+            font-size: 15px;
         }
 
-        .warning {
-            color: #facc15;
+        #fileInput {
+            display: none;
         }
 
-        .danger {
-            color: #ff5c5c;
+        /* Replay section */
+
+        .replay-section {
+            margin-top: 20px;
         }
+
+        .replay-row {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .slider-area {
+            position: relative;
+        }
+
+        .slider-value {
+            color: #ff4d52;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            appearance: none;
+            height: 5px;
+            background: #3c3f49;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #ff4d52;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background: #ff4d52;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .replay-button {
+            width: 100%;
+            height: 48px;
+            background: #ff4d52;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .replay-button:hover {
+            background: #ff6267;
+        }
+
+        .expected {
+            margin-top: 28px;
+            color: #999ba3;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Information box */
 
         .info-box {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            margin-top: 22px;
+            background: #193652;
+            padding: 22px 18px;
+            border-radius: 8px;
+            color: #2d9cff;
+            font-size: 17px;
         }
 
-        .info {
-            background: #0b1220;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #263244;
+        /* Divider */
+
+        .divider {
+            height: 1px;
+            background: #3a3d45;
+            margin: 55px 0 40px;
         }
 
-        .info h3 {
-            color: #00e5ff;
-            margin-bottom: 10px;
+        .footer-text {
+            color: #999ba3;
+            font-size: 15px;
+            line-height: 1.5;
         }
 
-        .info p {
-            color: #94a3b8;
-            line-height: 1.6;
-            font-size: 14px;
-        }
+        /* Result */
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
+        .result {
+            display: none;
             margin-top: 30px;
+            background: #171a21;
+            border-radius: 10px;
+            padding: 22px;
+            border: 1px solid #30343e;
         }
+
+        .result h2 {
+            margin-top: 0;
+        }
+
+        .success {
+            color: #35d07f;
+        }
+
+        .error {
+            color: #ff5b61;
+        }
+
+        /* Mobile */
 
         @media (max-width: 800px) {
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
+
+            .page {
+                padding: 45px 25px 80px;
             }
 
-            .info-box {
+            h1 {
+                font-size: 34px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .replay-row {
                 grid-template-columns: 1fr;
             }
 
-            header {
-                padding: 18px 20px;
+            .upload-box {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .hero h2 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .cards {
-                grid-template-columns: 1fr;
+            .replay-button {
+                margin-top: 10px;
             }
         }
     </style>
@@ -202,146 +239,179 @@
 
 <body>
 
-    <header>
-        <h1>🛡️ PassiveWatch</h1>
-        <span>AI-Based Cyber Threat Detection</span>
-    </header>
+<div class="page">
 
     <div class="container">
 
-        <section class="hero">
-            <h2>Cyber Threat Detection Dashboard</h2>
+        <h1>PassiveWatch: Threat Detection</h1>
 
-            <p>
-                PassiveWatch analyzes one-way IP traffic and network flow
-                metadata to identify suspicious cyber threat patterns using
-                explainable detection techniques.
-            </p>
+        <div class="description">
+            Replay passive flow metadata to detect and review potential threats.
+            Traffic is not probed, blocked, or decrypted.
+        </div>
 
-            <div class="status">
-                ● SYSTEM ONLINE
-            </div>
-        </section>
+        <!-- Upload -->
 
-        <section class="cards">
+        <label class="label">
+            Upload flow export (CSV, JSONL, or NDJSON)
+        </label>
 
-            <div class="card">
-                <h3>TRAFFIC FLOWS</h3>
-                <div class="number">1,248</div>
-            </div>
+        <div class="upload-box">
 
-            <div class="card">
-                <h3>THREATS DETECTED</h3>
-                <div class="number danger">27</div>
-            </div>
+            <button class="upload-button"
+                    onclick="document.getElementById('fileInput').click()">
+                ⇧ &nbsp; Upload
+            </button>
 
-            <div class="card">
-                <h3>SAFE CONNECTIONS</h3>
-                <div class="number safe">1,183</div>
-            </div>
+            <span class="file-info">
+                200MB per file · CSV, JSONL, NDJSON
+            </span>
 
-            <div class="card">
-                <h3>RISK SCORE</h3>
-                <div class="number warning">32%</div>
-            </div>
+            <input
+                type="file"
+                id="fileInput"
+                accept=".csv,.jsonl,.ndjson"
+                onchange="handleFile(this)"
+            >
 
-        </section>
+        </div>
 
-        <section class="section">
+        <!-- Replay -->
 
-            <h2>Recent Traffic Analysis</h2>
+        <div class="replay-section">
 
-            <table>
+            <label class="label">
+                Replay delay per flow (ms)
+            </label>
 
-                <thead>
-                    <tr>
-                        <th>Source IP</th>
-                        <th>Destination IP</th>
-                        <th>Protocol</th>
-                        <th>Traffic</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
+            <div class="replay-row">
 
-                <tbody>
+                <div class="slider-area">
 
-                    <tr>
-                        <td>192.168.1.10</td>
-                        <td>45.77.21.90</td>
-                        <td>TCP</td>
-                        <td>2.4 MB</td>
-                        <td class="safe">SAFE</td>
-                    </tr>
+                    <div class="slider-value">
+                        <span id="delayValue">0</span>
+                    </div>
 
-                    <tr>
-                        <td>10.0.0.24</td>
-                        <td>185.220.101.4</td>
-                        <td>TCP</td>
-                        <td>8.7 MB</td>
-                        <td class="danger">THREAT</td>
-                    </tr>
+                    <input
+                        type="range"
+                        id="delaySlider"
+                        min="0"
+                        max="1000"
+                        value="0"
+                        oninput="updateDelay(this.value)"
+                    >
 
-                    <tr>
-                        <td>192.168.1.25</td>
-                        <td>104.21.55.12</td>
-                        <td>UDP</td>
-                        <td>1.8 MB</td>
-                        <td class="safe">SAFE</td>
-                    </tr>
-
-                    <tr>
-                        <td>10.0.0.18</td>
-                        <td>91.108.56.20</td>
-                        <td>TCP</td>
-                        <td>5.1 MB</td>
-                        <td class="warning">SUSPICIOUS</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </section>
-
-        <section class="section">
-
-            <h2>Detection Approach</h2>
-
-            <div class="info-box">
-
-                <div class="info">
-                    <h3>🔍 Traffic Analysis</h3>
-                    <p>
-                        Monitors flow metadata such as source IP,
-                        destination IP, protocol, packets and traffic volume.
-                    </p>
                 </div>
 
-                <div class="info">
-                    <h3>🤖 Threat Detection</h3>
-                    <p>
-                        Uses explainable detection rules to identify
-                        suspicious network behaviour and abnormal traffic.
-                    </p>
-                </div>
-
-                <div class="info">
-                    <h3>⚠️ Alert Generation</h3>
-                    <p>
-                        Suspicious traffic is classified and presented
-                        as security alerts for investigation.
-                    </p>
-                </div>
+                <button
+                    class="replay-button"
+                    onclick="replayStream()">
+                    Replay stream
+                </button>
 
             </div>
 
-        </section>
+        </div>
+
+        <!-- Expected fields -->
+
+        <div class="expected">
+            Expected fields: timestamp, src_ip, dst_ip, ports, protocol,
+            bytes_out/in, packets, duration; optional DNS, TLS fingerprint,
+            QUIC, flags, and packet_sizes.
+        </div>
+
+        <!-- Info -->
+
+        <div class="info-box" id="infoBox">
+            Choose a passive flow export or replay the included synthetic
+            traffic scenario.
+        </div>
+
+        <!-- Result -->
+
+        <div class="result" id="resultBox">
+
+            <h2>Replay Result</h2>
+
+            <p id="resultText"></p>
+
+        </div>
+
+        <!-- Divider -->
+
+        <div class="divider"></div>
+
+        <div class="footer-text">
+            Confidence values are prototype scores, not calibrated probabilities.
+            Validate thresholds and models against representative, locally
+            labelled traffic before operational use.
+        </div>
 
     </div>
 
-    <footer>
-        PassiveWatch © 2026 | AI-Based Cyber Threat Detection
-    </footer>
+</div>
+
+<script>
+
+    let selectedFile = null;
+
+    function handleFile(input) {
+
+        selectedFile = input.files[0];
+
+        if (!selectedFile) {
+            return;
+        }
+
+        const infoBox = document.getElementById("infoBox");
+
+        infoBox.innerHTML =
+            "Selected file: <strong>" +
+            selectedFile.name +
+            "</strong>";
+
+        infoBox.style.color = "#35d07f";
+    }
+
+
+    function updateDelay(value) {
+
+        document.getElementById("delayValue").innerText = value;
+    }
+
+
+    function replayStream() {
+
+        const resultBox =
+            document.getElementById("resultBox");
+
+        const resultText =
+            document.getElementById("resultText");
+
+        resultBox.style.display = "block";
+
+        if (selectedFile) {
+
+            resultText.innerHTML =
+                "<span class='success'>✓ Replay started</span><br><br>" +
+                "File: " +
+                selectedFile.name +
+                "<br>" +
+                "Replay delay: " +
+                document.getElementById("delaySlider").value +
+                " ms per flow.";
+
+        } else {
+
+            resultText.innerHTML =
+                "<span class='success'>✓ Synthetic traffic replay started</span><br><br>" +
+                "PassiveWatch is replaying the included synthetic traffic scenario.";
+        }
+
+    }
+
+</script>
 
 </body>
 </html>
